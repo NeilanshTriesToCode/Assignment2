@@ -3,6 +3,9 @@ const Doctor = require('./Doctor.js');
 const unirest = require('unirest');
 var API_KEY = "aad4d9f345mshbfe74e4d541f881p148a51jsn8535d35fade1";
 
+// importing API for project
+const { translate } = require('bing-translate-api')
+
 var replyFunction = replyMessage;
 
 
@@ -12,6 +15,7 @@ var doctor = new Doctor();
 
 var express = require('express');
 var socket = require('socket.io'); // a socket brings in message from the client.
+const request = require('request');
 
 // App setup
 var app = express();
@@ -32,32 +36,38 @@ serverSocket.on('connection', async function (socket) {
 
     console.log('Connection established...');
     // only one possible response for wines
-    let wineInfo=await findWineRecommendations();
-    doctor.setWineInfo(wineInfo);
+    //let wineInfo=await findWineRecommendations();
+    //doctor.setWineInfo(wineInfo);
     // respond to Client's message. We've named this event as "chat-message".
     socket.on('chat-message', onMessage);
 });
 
 function onMessage(data) {
-    const setReply = async () => {
-
-        let patientMessage = new PatientMessage(data.message);
-        await doctor.setMessage(patientMessage);
-        if (doctor.getIntent() == "user.food") {
-            let recipeInfo = await findRecipe();
-            doctor.setRecipeInfo(recipeInfo);
-
-            let wineInfo=await findWineRecommendations();
-            doctor.setWineInfo(wineInfo);
-
+    // translate API used here
+    // translating message from the user to English
+    translate(data.message, null, 'en', true).then(res => {
+        console.log('user\'s translated message: ' + res.translation);  // shows translated message  // DEBUG
+        data.message = res.translation;
+        const setReply = async () => {
+            let patientMessage = new PatientMessage(data.message);
+            await doctor.setMessage(patientMessage);
+            if (doctor.getIntent() == "user.food") {
+                let recipeInfo = await findRecipe();
+                doctor.setRecipeInfo(recipeInfo);
+    
+                let wineInfo=await findWineRecommendations();
+                doctor.setWineInfo(wineInfo);
+            }
+    
+            await replyFunction(doctor, serverSocket); //  get a reply message to send to the client
+            // serverSocket.emit('chat-message', serverReply);
+            console.log('Client message: ', data.message);
+            console.log('Server reply: ', serverReply);
         }
-
-        await replyFunction(doctor, serverSocket); //  get a reply message to send to the client
-        // serverSocket.emit('chat-message', serverReply);
-        console.log('Client message: ', data.message);
-        console.log('Server reply: ', serverReply);
-    }
-    setReply();
+        setReply();
+      }).catch(err => {
+        console.error(err);
+    });   
 }
 
 // simple function to reply to Client's message

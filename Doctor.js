@@ -1,9 +1,11 @@
 // A class to process client message
 const PatientMessage = require('./PatientMessage.js');
-
+// import wikiSearch file
+const wikiSearch = require("./wikiSearch.js");
+const request = require('request');  // module to facilitate HTTP requests
 
 module.exports = class Doctor {
-
+    
     patientMessage;
     messageSummary;
     messageNER;
@@ -98,7 +100,22 @@ module.exports = class Doctor {
             }
         } else if (this.awaitReplyResources) { // dialogue on topic started
             if (this.getIntent() == "user.yes") {
-                this.serverReply.push(this.issue.link);
+                (async function(){ try{
+                    let info;
+                    await wikiSearch.getWikiInfo('anxiety').then(res => { 
+                        info = res;
+                        console.log(typeof info);
+                        console.log(info); 
+                        //this.serverReply.push('hi'); 
+                        return info;                       
+                    });  
+                                      
+                }catch(error){
+                    console.log(error);
+                }
+                })().catch(e => {console.error(e);})
+                
+
             } else if (this.getIntent() == "user.no") {
                 this.serverReply.push("Ok");
             } else {
