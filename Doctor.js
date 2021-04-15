@@ -100,21 +100,8 @@ module.exports = class Doctor {
             }
         } else if (this.awaitReplyResources) { // dialogue on topic started
             if (this.getIntent() == "user.yes") {
-                (async function(){ try{
-                    let info;
-                    await wikiSearch.getWikiInfo('anxiety').then(res => { 
-                        info = res;
-                        console.log(typeof info);
-                        console.log(info); 
-                        //this.serverReply.push('hi'); 
-                        return info;                       
-                    });  
-                                      
-                }catch(error){
-                    console.log(error);
-                }
-                })().catch(e => {console.error(e);})
-                
+               this.serverReply.push(this.issue.name);
+               return this.serverReply;
 
             } else if (this.getIntent() == "user.no") {
                 this.serverReply.push("Ok");
