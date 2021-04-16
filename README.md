@@ -26,7 +26,7 @@ As part of the Individual Project, the following APIs have been employed:
 -	**Bing translate** API to support translation of user’s questions into English. The user may input a message in any language, and would get back the reply in English.
 -	**Wikipedia API** and **request.js** module to recommend Wikipedia links to mental health issues reported by the user. The bot provides top 5 Wikipedia links to assist the user with a mental issue they are having. Issues like depression, stress, anxiety, OCD, and insomnia are supported. 
 
-*How do these features improve the bot?*<br>
+***How do these features improve the bot?***<br>
 •	Bing translate API allows the user to input in a language other than English, and receive the reply from the bot in English. The API translates the user’s message, and processes it to return a response from the Bot in English. <br>
 •	The Wikipedia API used along with the request.js module helps the bot provide resources to the user about a mental issue they are dealing with. Previously, the bot used to pick a single link from one of the project files. However, with the help of the API, the bot returns the first 5 Wikipedia resources that it finds on the mental issue. 
 
