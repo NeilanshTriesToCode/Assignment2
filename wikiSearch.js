@@ -4,7 +4,7 @@ const request = require('request');  // module to facilitate HTTP requests
 // topic is the health issue received from the user
 function getWikiInfo(topic){
     var searchFor = topic;
-    var url = `https://en.wikipedia.org/w/api.php?action=opensearch&search="+ ${searchFor} +"&limit=3&format=json`;
+    var url = `https://en.wikipedia.org/w/api.php?action=opensearch&search="+ ${searchFor} +"&limit=5&format=json`;
     var info = '';
     
     // this url is the Wikipedia API which will be used by the request module. It limits results to 3
