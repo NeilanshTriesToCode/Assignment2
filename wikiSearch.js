@@ -15,7 +15,7 @@ function getWikiInfo(topic){
         // sending HTTP request
         let r = request(url, function(error, response, body){
             if(error){
-                //console.log("can't connect to the server");
+                console.log("can't connect to the server");
                 return null;
             }
             else{
@@ -34,6 +34,7 @@ function getWikiInfo(topic){
 }
 
 module.exports = {getWikiInfo};
+
 // testing
 /*let info;
 getWikiInfo().then(res => { 

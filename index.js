@@ -87,16 +87,13 @@ async function replyMessage(doctor, serverSocket) {
         serverReply.push("Ah, "+person+" is an interesting character... You know them?");
     }
     
-    // if (serverReply.length==0 || serverReply[0]==""){
-    //     serverReply.push(":)");
-    // }
     var serverMsg = serverReply[0];
 
     if(serverMsg.includes('user.')){   // only executes in case the user enters a mental health issue
         var msg = serverMsg.split('.');
         var issue = msg[1];               // extracting issue from serverMsg
 
-        //importing file for wikipedia links
+        // importing file for wikipedia links
         // please check out wikiSearch.js for the API implementation
         const wikiSearch = require("./wikiSearch.js");
         wikiSearch.getWikiInfo(issue).then(res => { 
