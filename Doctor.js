@@ -25,7 +25,7 @@ module.exports = class Doctor {
 
 
 
-    mentalIssues = ["user.depression", "user.anxiety", "user.cannotsleep"];
+    mentalIssues = ["user.depression", "user.anxiety", "user.insomnia"];
     constructor() {
     }
 
@@ -101,7 +101,8 @@ module.exports = class Doctor {
         } else if (this.awaitReplyResources) { // dialogue on topic started
             if (this.getIntent() == "user.yes") {
                this.serverReply.push(this.issue.name);
-               return this.serverReply;
+               // return user's issue (later to be processed in index.js to provide wiki links from the bot)
+               //return this.serverReply;  
 
             } else if (this.getIntent() == "user.no") {
                 this.serverReply.push("Ok");

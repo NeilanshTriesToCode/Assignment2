@@ -90,46 +90,22 @@ async function replyMessage(doctor, serverSocket) {
     // if (serverReply.length==0 || serverReply[0]==""){
     //     serverReply.push(":)");
     // }
+    var serverMsg = serverReply[0];
 
-    if(serverReply.length == 1){
-        function getWikiInfo(topic){
-            var searchFor = topic;
-            var url = `https://en.wikipedia.org/w/api.php?action=opensearch&search="+ ${searchFor} +"&limit=3&format=json`;
-            var info = '';
-            
-            // this url is the Wikipedia API which will be used by the request module. It limits results to 3
-            // the request module will send an HTTP request using the url and retrieve the results
-            // results retrieved are in JSON format, and would have to be parsed
-        
-            return new Promise((resolve, reject) =>{
-                // sending HTTP request
-                let r = request(url, function(error, response, body){
-                    if(error){
-                        //console.log("can't connect to the server");
-                        return null;
-                    }
-                    else{
-                        //console.log('body: \n', body);    // prints the HTML body content
-                        //console.log('\n');   
-                        var wiki_info = JSON.parse(body);
-                        for (var i = 0; i < wiki_info[1].length; i++) {  
-                            info = info + `Article: ${wiki_info[1][i]}  ------- Link: ${wiki_info[3][i]}` + "\n";
-                        }
-                        //console.log(info);
-                        //resolve(serverSocket.emit('chat-message', info));
-                        serverSocket.emit('chat-message', info);
-                    }
-                });     
-            });      
-        }
-        getWikiInfo('anxiety').then(res => { 
+    if(serverMsg.includes('user.')){   // only executes in case the user enters a mental health issue
+        var msg = serverMsg.split('.');
+        var issue = msg[1];               // extracting issue from serverMsg
+
+        //importing file for wikipedia links
+        // please check out wikiSearch.js for the API implementation
+        const wikiSearch = require("./wikiSearch.js");
+        wikiSearch.getWikiInfo(issue).then(res => { 
             info = res;
-            //console.log('hi');
-            console.log(info); 
+            console.log(info);   // DEBUG
+            serverSocket.emit('chat-message', info);
+            serverSocket.emit('chat-message', serverReply[1]); // to ask for appointment
         }); 
     }
-
-
     else{
         for (var i = 0; i < serverReply.length; i++) {
             serverSocket.emit('chat-message', serverReply[i]);

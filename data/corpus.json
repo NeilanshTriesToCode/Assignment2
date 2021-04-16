@@ -795,10 +795,11 @@
       ]
     },
     {
-      "intent": "user.cannotsleep",
+      "intent": "user.insomnia",
       "utterances": [
         "I'm insomniac",
         "I cannot sleep",
+        "I have insomnia",
         "I can't sleep",
         "I'm sleepless",
         "I can't fall sleep",
