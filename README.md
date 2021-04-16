@@ -1,11 +1,12 @@
 # Psychiatrist Chatbot as a Client-Server Service - Individual Project
 
 Meet **Dr. Hannibal Lecter**, the online Psychiatrist Bot.
-The bot is loosely based on the titular main antagonist of the Hannibal book series by Thomas Harris and their film and television series adaptions.
-Hannibal is an extremely brilliant psychiatrist, but also a mentally disturbed and cannibalistic serial killer infamous for eating his victims.
+The bot implemented is a Psychiatrist Bot, inspired from the character Dr. Hannibal Lecter from the movie *Silence of the Lambs* and the TV show *Hannibal*. As part of the individual project, the repository was forked from an existing one to implement new features.
 
 ***Note: This is for the Individual Project. Please check out the original branch for information about the pre-existing features at: 
 https://github.com/cosc310-group19/Assignment2/tree/Bot-App***
+
+*Find the presentation video here:*
 
 ## Overview (Individual Project)
 - The app employs sockets to enable communication between Client (user) and the Server (Bot).
@@ -20,7 +21,7 @@ After having added two new features. the bot supports the following functionalit
 - Allows user's messages to be translated to English. The Bot's replies are however displayed in English.
 - Instead of providing a single built-in (stored) link for each mental health issue, the Bot provides 5 Wiki links found using HTTP requests.
 
-## `Libraries and APIs used`
+## Libraries and APIs used
 As part of the Individual Project, the following APIs have been employed: 
 -	**Bing translate** API to support translation of user’s questions into English. The user may input a message in any language, and would get back the reply in English.
 -	**Wikipedia API** and **request.js** module to recommend Wikipedia links to mental health issues reported by the user. The bot provides top 5 Wikipedia links to assist the user with a mental issue they are having. Issues like depression, stress, anxiety, OCD, and insomnia are supported. 
@@ -34,7 +35,7 @@ As part of the Individual Project, the following APIs have been employed:
 - Open the browser, and type localhost:4000.
 - Start having a conversation with Dr. Lecter!
 
-## How to run the tests
+## How to run the tests (for pre-existing features)
 - npm install -g jest
 - npm test 
 
