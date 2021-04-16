@@ -1,7 +1,7 @@
 # Psychiatrist Chatbot as a Client-Server Service - Individual Project
 
 Meet **Dr. Hannibal Lecter**, the online Psychiatrist Bot.
-The bot implemented is a Psychiatrist Bot, inspired from the character Dr. Hannibal Lecter from the movie *Silence of the Lambs* and the TV show *Hannibal*. As part of the individual project, the repository was forked from an existing one to implement new features.
+The bot implemented is a Psychiatrist Bot, inspired from the character Dr. Hannibal Lecter from the movie *Silence of the Lambs* and the TV show *Hannibal*. As part of the individual project, the repository was forked from the group's project repository to implement new features.
 
 ***Note: This is for the Individual Project. Please check out the original branch for information about the pre-existing features at: 
 https://github.com/cosc310-group19/Assignment2/tree/Bot-App***
