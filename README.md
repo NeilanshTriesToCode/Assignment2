@@ -6,7 +6,7 @@ The bot implemented is a Psychiatrist Bot, inspired from the character Dr. Hanni
 ***Note: This is for the Individual Project. Please check out the original branch for information about the pre-existing features at: 
 https://github.com/cosc310-group19/Assignment2/tree/Bot-App***
 
-*Find the presentation video here:*
+*Find the presentation video here:* https://drive.google.com/file/d/1e_qzuXr53sG9RexupbJxdyvflzV_mG7B/view?usp=sharing
 
 ## Overview (Individual Project)
 - The app employs sockets to enable communication between Client (user) and the Server (Bot).
