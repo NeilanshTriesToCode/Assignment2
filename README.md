@@ -17,7 +17,7 @@ https://github.com/cosc310-group19/Assignment2/tree/Bot-App***
 - Client side is frontend, while the server side is backend.
 
 ## Functionalities
-After having added two new features. the bot supports the following functionalities:
+After having added two new features, the bot supports the following functionalities:
 - Allows user's messages to be translated to English. The Bot's replies are however displayed in English.
 - Instead of providing a single built-in (stored) link for each mental health issue, the Bot provides 5 Wiki links found using HTTP requests.
 
@@ -27,7 +27,7 @@ As part of the Individual Project, the following APIs have been employed:
 -	**Wikipedia API** and **request.js** module to recommend Wikipedia links to mental health issues reported by the user. The bot provides top 5 Wikipedia links to assist the user with a mental issue they are having. Issues like depression, stress, anxiety, OCD, and insomnia are supported. 
 
 *How do these features improve the bot?*<br>
-•	Bing translate API allows the user to input in a language other than English, and receive the reply from the bot in English. The API translates the user’s message, and processes it to return a response from the Bot in English.
+•	Bing translate API allows the user to input in a language other than English, and receive the reply from the bot in English. The API translates the user’s message, and processes it to return a response from the Bot in English. <br>
 •	The Wikipedia API used along with the request.js module helps the bot provide resources to the user about a mental issue they are dealing with. Previously, the bot used to pick a single link from one of the project files. However, with the help of the API, the bot returns the first 5 Wikipedia resources that it finds on the mental issue. 
 
 
