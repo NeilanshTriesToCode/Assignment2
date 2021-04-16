@@ -752,6 +752,36 @@
       ]
     },
     {
+      "intent": "user.stress",
+      "utterances": [
+        "I feel stressed",
+        "I'm stressed",
+        "It has been stressful",
+        "I'm going through stress",
+        "I feel stressed out"
+      ],
+      "answers": [
+        "I'm sorry you feel that way",
+        "Would you like to talk more about it?",
+        "Do something that clears your mind, like working out or read a book",
+        "Take a break, you deserve one!"
+      ]
+    },
+    {
+      "intent": "user.ocd",
+      "utterances": [
+        "I have OCD",
+        "I have Obsessive Compulsive Disorder",
+        "The OCD is affecting me",
+        "I'm having OCD",
+        "I think I have OCD"
+      ],
+      "answers": [
+        "I'm sorry you feel that way",
+        "Would you like to talk more about it?"
+      ]
+    }, 
+    {
       "intent": "user.back",
       "utterances": [
         "I'm back",

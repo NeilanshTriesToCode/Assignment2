@@ -25,7 +25,7 @@ module.exports = class Doctor {
 
 
 
-    mentalIssues = ["user.depression", "user.anxiety", "user.insomnia"];
+    mentalIssues = ["user.depression", "user.anxiety", "user.insomnia", "user.stress", "user.ocd"];
     constructor() {
     }
 
